@@ -22,5 +22,6 @@ class ImageController extends GetxController{
     userName.value = data1?["name"];
     List<dynamic> list = data1?["imageURL"];
     imageURLList.addAll(list.toSet());
+    print(userName);
     }
 }
