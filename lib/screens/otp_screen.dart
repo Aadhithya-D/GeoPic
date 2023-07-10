@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:os_app/controllers/image_controller.dart';
 import 'package:os_app/screens/login.dart';
 import 'package:os_app/screens/register.dart';
 import 'package:pinput/pinput.dart';
@@ -115,8 +116,6 @@ class _VerifyOTPState extends State<VerifyOTP> {
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () async {
                       try {
-
-
                         if (widget.bol) {
                           PhoneAuthCredential credential =
                           PhoneAuthProvider.credential(
@@ -144,13 +143,14 @@ class _VerifyOTPState extends State<VerifyOTP> {
                       } catch (e) {
                         print("error");
                       }
+                      ImageController().fetchData();
                     },
                     child: const Text(
                       "Verify Phone Number",
                       style: TextStyle(color: Colors.white),
                     )),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   const Text("Incorrect number?"),

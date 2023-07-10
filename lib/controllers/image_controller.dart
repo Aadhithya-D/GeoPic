@@ -24,4 +24,9 @@ class ImageController extends GetxController{
     imageURLList.addAll(list.toSet());
     print(userName);
     }
+
+    clear() {
+      imageURLList = <dynamic>{}.obs;
+      userName = "".obs;
+    }
 }
